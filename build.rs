@@ -163,7 +163,6 @@ fn link_from_package() {
 
 fn main() {
     let out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
-    let manifest_dir = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
 
     // Look for assimp lib in Brew install paths on MacOS.
     // See https://stackoverflow.com/questions/70497361/homebrew-mac-m1-cant-find-installs
@@ -195,7 +194,7 @@ fn main() {
         .header("wrapper.h")
         .clang_arg(format!("-I{}", out_dir.join(static_lib()).join("include").display()))
         .clang_arg(format!("-I{}", "assimp/include"))
-        .parse_callbacks(Box::new(bindgen::CargoCallbacks))
+        .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .allowlist_type("ai.*")
         .allowlist_function("ai.*")
         .allowlist_var("ai.*")
