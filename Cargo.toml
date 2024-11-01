@@ -12,7 +12,7 @@ categories = [
     "game-engines",
     "multimedia",
 ]
-keywords = ["assimp", "3d", "blend", "3ds", "glTF"]
+keywords = ["assimp", "game", "gamedev", "graphics"]
 repository = "https://github.com/jkvargas/russimp-sys"
 description = "Raw Assimp bindings for Rust"
 include = [
