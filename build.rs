@@ -214,14 +214,7 @@ fn main() {
         let _ = fs::remove_file(config_file);
     }
 
-    let mut built_opts = built::Options::default();
-    built_opts
-        .set_dependencies(false)
-        .set_compiler(false)
-        .set_ci(false)
-        .set_cfg(false);
-
-    built::write_built_file_with_opts(&built_opts, &manifest_dir, &out_dir.join("built.rs"))
+    built::write_built_file_with_opts(&out_dir.join("built.rs"))
         .unwrap();
 
     for n in lib_names().iter() {
